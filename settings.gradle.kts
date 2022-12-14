@@ -14,5 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Prawable"
 include(":app")
-include(":core")
-include(":image")
+include(":image:resource")
+include(":image:debug")
+include(":image:release")

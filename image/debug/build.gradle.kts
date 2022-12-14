@@ -1,10 +1,11 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
 }
 
 android {
-    namespace = "com.mafia.prawable.image"
+    namespace = "com.mafia.prawable.image.debug"
     compileSdk = 33
 
     defaultConfig {
@@ -15,4 +16,8 @@ android {
     dataBinding {
         enable = true
     }
+}
+
+dependencies {
+    kapt("com.android.databinding:compiler:3.1.4")
 }

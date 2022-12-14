@@ -23,7 +23,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -63,4 +66,8 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.3.2")
     debugImplementation("androidx.compose.ui:ui-tooling:1.3.2")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.3.2")
+
+    debugImplementation(project(":image:debug"))
+    releaseImplementation(project(":image:release"))
+    implementation(project(":image:resource"))
 }
