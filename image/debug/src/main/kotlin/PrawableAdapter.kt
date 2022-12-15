@@ -2,6 +2,7 @@ package com.mafia.prawable.image.debug
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import com.mafia.prawable.image.config.DrawableConfig
 import com.mafia.prawable.image.debug.R.*
 
 object PrawableAdapter {

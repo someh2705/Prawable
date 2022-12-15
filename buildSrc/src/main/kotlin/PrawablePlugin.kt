@@ -11,39 +11,43 @@ class PrawablePlugin : Plugin<Project> {
             tasks.register("create") {
                 // Copy resource to debug
                 copy {
-                    from("${projectDir.path}/image/resource/src/main/res/drawable")
-                    into("${projectDir.path}/debug/src/main/res/drawable")
+                    from("${rootDir.path}\\image\\resource\\src\\main\\res\\drawable")
+                    into("${rootDir.path}\\image\\debug\\src\\main\\res\\drawable")
                 }
 
                 // Copy resource to release
                 copy {
-                    from("${projectDir.path}/image/resource/src/main/res/drawable")
-                    into("${projectDir.path}/release/src/main/assets")
+                    from("${rootDir.path}\\image\\resource\\src\\main\\res\\drawable")
+                    into("${rootDir.path}\\image\\release\\src\\main\\assets")
                 }
 
-                generate(projectDir.path)
+                generate(rootDir.path)
             }
         }
     }
 
     private fun generate(dir: String) {
-        val images = File("$dir/image/resource/src/main/res/drawable")
-        val path = "$dir/image/config/src/main/kotlin/DrawableConfig.kt"
+        val images = File("$dir\\image\\resource\\src\\main\\res\\drawable")
+        val path = "$dir\\image\\config\\src\\main\\kotlin\\DrawableConfig.kt"
         
         val file = File(path)
 
         if (!file.exists()) {
+            file.createNewFile()
+        } else {
+            file.delete()
             file.createNewFile()
         }
 
         val outputStream = file.outputStream()
         val writer = outputStream.writer()
 
-        writer.write("package com.mafia.prawable.image.config\n")
-        writer.write("enum class DrawableConfig {")
+        writer.write("package com.mafia.prawable.image.config\n\n")
+        writer.write("enum class DrawableConfig(val prefix: String) {\n")
 
         for (image in images.list()!!) {
-            writer.write("$image,\n")
+            val (name, prefix) = image.split(".")
+            writer.write("\t$name(\"$prefix\"),\n")
         }
         writer.write("}")
         writer.close()
