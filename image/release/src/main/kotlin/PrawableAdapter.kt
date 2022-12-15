@@ -8,9 +8,9 @@ object PrawableAdapter {
 
     @BindingAdapter("assetImage")
     @JvmStatic
-    fun ImageView.setAssetImage(imageName: String) {
+    fun ImageView.setAssetImage(imageName: DrawableConfig) {
         val assets = context.assets
-        val ip = assets.open("${imageName}.webp")
+        val ip = assets.open("${imageName.name}.webp")
         val bitmap = BitmapFactory.decodeStream(ip)
         setImageBitmap(bitmap)
     }

@@ -1,11 +1,16 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.mafia.plugin.prawable")
 }
 
 android {
     namespace = "com.mafia.prawable"
     compileSdk = 33
+
+    tasks.preBuild.dependsOn("create")
 
     defaultConfig {
         applicationId = "com.mafia.prawable"
@@ -69,5 +74,5 @@ dependencies {
 
     debugImplementation(project(":image:debug"))
     releaseImplementation(project(":image:release"))
-    implementation(project(":image:resource"))
+    implementation(project(":image:config"))
 }

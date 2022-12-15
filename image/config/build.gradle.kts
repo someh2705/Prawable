@@ -1,11 +1,13 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
+import java.io.ByteArrayOutputStream
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
 }
 
 android {
-    namespace = "com.mafia.prawable.image.release"
+    namespace = "com.mafia.prawable.image.config"
     compileSdk = 33
 
     defaultConfig {
@@ -16,9 +18,4 @@ android {
     dataBinding {
         enable = true
     }
-}
-
-dependencies {
-    implementation(project(":image:config"))
-    kapt("com.android.databinding:compiler:3.1.4")
 }

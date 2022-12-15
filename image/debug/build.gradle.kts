@@ -19,5 +19,6 @@ android {
 }
 
 dependencies {
+    implementation(project(":image:config"))
     kapt("com.android.databinding:compiler:3.1.4")
 }

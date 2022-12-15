@@ -7,7 +7,7 @@
 
         <variable
             name="drawable"
-            type="com.mafia.prawable.image.resource.DrawableConfig" />
+            type="com.mafia.prawable.image.config.DrawableConfig" />
     </data>
 
     <LinearLayout
@@ -19,8 +19,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:assetImage="@{drawable.mafiasafe_icon_big}"
-            tools:src="@drawable/mafiasafe_icon_big" />
+            app:assetImage="@{drawable.mafiasafe_icon_big}" />
 
     </LinearLayout>
 </layout>

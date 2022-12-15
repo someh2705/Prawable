@@ -29,7 +29,7 @@ tasks.register("create") {
         into("../debug/src/main/res/drawable")
     }
 
-    // Copy resource to relase
+    // Copy resource to release
     copy {
         from("/src/main/res/drawable")
         into("../release/src/main/assets")
